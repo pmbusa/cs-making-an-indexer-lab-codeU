@@ -1,9 +1,7 @@
 package com.flatironschool.javacs;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
@@ -37,7 +35,28 @@ public class TermCounter {
 	 */
 	public int size() {
         // TODO: fill this in.
-		return -1;
+
+        int count = 0;
+        int count2 = 0;
+
+        Collection values = this.map.values();
+        Iterator it = values.iterator();
+
+        while (it.hasNext()) {
+            Integer cur = (Integer)it.next();
+            count += cur.intValue();
+            //values.remove(cur);
+        }
+
+        for (Integer val : (Collection<Integer>)values) {
+            count2 += val.intValue();
+        }
+
+        System.out.println("Count1: " + count);
+        System.out.println("Count2: " + count2);
+
+
+		return count2;
 	}
 
 	/**
